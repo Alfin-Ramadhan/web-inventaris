@@ -33,7 +33,7 @@ final class ItemResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function getRecordRouteKeyName(): ?string
+    public static function getRecordRouteKeyName(): string
     {
         return 'inventory_number';
     }

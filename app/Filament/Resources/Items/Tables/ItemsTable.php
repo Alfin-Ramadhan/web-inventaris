@@ -49,8 +49,8 @@ final class ItemsTable
                     ->trueLabel('Tersedia')
                     ->falseLabel('Tidak Tersedia')
                     ->queries(
-                        true: fn (Builder $query) => $query->whereDoesntHave('borrowings', fn ($q) => $q->whereNull('returned_at')),
-                        false: fn (Builder $query) => $query->whereHas('borrowings', fn ($q) => $q->whereNull('returned_at')),
+                        true: fn (Builder $query) => $query->whereDoesntHave('borrowings', fn (Builder $q) => $q->whereNull('returned_at')),
+                        false: fn (Builder $query) => $query->whereHas('borrowings', fn (Builder $q) => $q->whereNull('returned_at')),
                     ),
             ], layout: FiltersLayout::AfterContent)
             ->defaultPaginationPageOption(5)

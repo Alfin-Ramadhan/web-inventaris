@@ -15,6 +15,6 @@ final class CreateItem extends CreateRecord
 
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('index');
+        return ItemResource::getUrl('index');
     }
 }

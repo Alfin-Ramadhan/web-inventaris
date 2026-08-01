@@ -23,6 +23,6 @@ final class EditItem extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('index');
+        return ItemResource::getUrl('index');
     }
 }

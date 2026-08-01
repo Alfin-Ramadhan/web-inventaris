@@ -31,6 +31,11 @@ final class ItemForm
                             ->label('Nomor Inventaris')
                             ->required()
                             ->unique(ignoreRecord: true),
+                        TextInput::make('quantity')
+                            ->label('Jumlah')
+                            ->numeric()
+                            ->default(1)
+                            ->required(),
                     ])
                     ->columnSpan(1),
             ]);

@@ -40,6 +40,7 @@ final class ItemInfolist
                     ->state(function (Item $record): HtmlString {
                         $url = ItemResource::getUrl('view', ['record' => $record]);
                         $pdfUrl = route('items.pdf', ['item' => $record->inventory_number]);
+                        /** @var string $svgDataUri */
                         $svgDataUri = (new QRCode)->render($url);
                         $recordId = e($record->id);
 

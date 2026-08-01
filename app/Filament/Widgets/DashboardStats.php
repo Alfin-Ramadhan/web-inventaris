@@ -16,7 +16,9 @@ final class DashboardStats extends StatsOverviewWidget
 
     protected function getStats(): array
     {
-        $driver = Item::query()->getConnection()->getDriverName();
+        /** @var \Illuminate\Database\Connection $connection */
+        $connection = Item::query()->getConnection();
+        $driver = $connection->getDriverName();
         $monthExpr = $driver === 'sqlite' ? "cast(strftime('%m', created_at) as integer)" : 'MONTH(created_at)';
 
         /** @var array<int, int> $itemCounts */

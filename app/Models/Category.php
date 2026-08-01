@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -54,7 +55,7 @@ final class Category extends Model
     {
         return Attribute::get(function (): int {
             return $this->items()
-                ->whereDoesntHave('borrowings', fn ($query) => $query->whereNull('returned_at'))
+                ->whereDoesntHave('borrowings', fn (Builder $query) => $query->whereNull('returned_at'))
                 ->count();
         });
     }

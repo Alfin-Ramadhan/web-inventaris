@@ -22,8 +22,10 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (config('app.env') !== 'local' || request()->header('X-Forwarded-Proto') === 'https' || str_contains(request()->header('Host', ''), 'trycloudflare.com')) {
+        if (request()->header('X-Forwarded-Proto') === 'https' || str_contains((string) request()->header('Host', ''), 'trycloudflare.com')) {
             URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
         }
     }
 }

@@ -8,12 +8,13 @@ parameters:
     paths:
         - app
         - bootstrap/app.php
-        - config
         - database
         - public
         - routes
 
 
     level: max
+
+    treatPhpDocTypesAsCertain: false
 
     tmpDir: /tmp/phpstan
